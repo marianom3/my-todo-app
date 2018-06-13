@@ -6,7 +6,8 @@
     "server": "node server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "start": "yarn server",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "build-all": "cd client && yarn && yarn run build",
+    "heroku-postbuild": "yarn build-all"
   },
   "dependencies": {
     "express": "^4.16.2"
