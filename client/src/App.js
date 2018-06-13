@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount () {
     (async() => {
-      const response = await fetch("/api/hello");
+      const response = await fetch("/api/todos");
       return await response.json();
     })().then(response => this.setState({ response: response.message }));
   }
