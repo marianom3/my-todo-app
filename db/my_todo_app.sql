@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS my_todo_app;
+CREATE DATABASE my_todo_app;

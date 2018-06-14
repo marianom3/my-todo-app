@@ -7,15 +7,15 @@ class App extends Component {
     super();
 
     this.state = {
-      response: ''
+      todos: []
     };
   }
 
   componentDidMount () {
     (async() => {
-      const response = await fetch("/api/todos");
-      return await response.json();
-    })().then(response => this.setState({ response: response.message }));
+      const todos = await fetch("/api/todos");
+      return await todos.json();
+    })().then((todos) => this.setState({ todos: todos }));
   }
 
   render () {
@@ -25,9 +25,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          {this.state.response}
-        </p>
+        <ul>
+          {this.state.todos.map((todo) => <li>{todo.name}</li>)}
+        </ul>
       </div>
     );
   }
